@@ -5,7 +5,7 @@
 // Neuro-Evolution Flappy Bird
 
 class Bird {
-  constructor(brain) {
+  constructor(brainA,brainB) { // changed from constructor(brain)
     this.y = height / 2;
     this.x = 64;
 
@@ -16,11 +16,16 @@ class Bird {
 
     this.score = 0;
     this.fitness = 0;
-    if (brain) {
-      this.brain = brain.copy();
+    //New code
+    if (brainA && brainB) { 
+      this.brain = new NeuralNetwork(brainA, brainB);
+      //
+    //} else if (brainA) {
+    //  this.brain = brainA.copy();
     } else {
       this.brain = new NeuralNetwork(5, 8, 2);
     }
+    
 
   }
 

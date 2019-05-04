@@ -21,7 +21,31 @@ let tanh = new ActivationFunction(
 class NeuralNetwork {
   // TODO: document what a, b, c are
   constructor(a, b, c) {
-    if (a instanceof NeuralNetwork) {
+    //New code
+    if (a instanceof NeuralNetwork && b instanceof NeuralNetwork) {
+      this.input_nodes = a.input_nodes;
+      this.hidden_nodes = a.hidden_nodes;
+      this.output_nodes = a.output_nodes;
+
+      //let rand = random(1);
+      
+      //if (rand <= 0.5) {  
+
+        //takes input-2-hidden weights and bias from parentA
+        // takes hidden-2-output weights and bias from parentB
+        this.weights_ih = a.weights_ih.copy();
+        this.weights_ho = b.weights_ho.copy();
+        this.bias_h = a.bias_h.copy();
+        this.bias_o = b.bias_o.copy();
+      //} else {
+      //  this.weights_ih = b.weights_ih;
+      //  this.weights_ho = a.weights_ho;
+      //  this.bias_h = b.bias_h.copy();
+      //  this.bias_o = a.bias_o.copy();
+      //}
+
+      //
+    } else if (a instanceof NeuralNetwork) {
       this.input_nodes = a.input_nodes;
       this.hidden_nodes = a.hidden_nodes;
       this.output_nodes = a.output_nodes;
@@ -175,7 +199,11 @@ class NeuralNetwork {
     this.bias_h.map(mutate);
     this.bias_o.map(mutate);
   }
-
+  //New code
+  crossOver(parentA, parentB) {
+    return new NeuralNetwork(parentA,parentB);
+  }
+  //
 
 
 }

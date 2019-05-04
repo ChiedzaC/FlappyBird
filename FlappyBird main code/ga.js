@@ -8,11 +8,17 @@ function nextGeneration() {
   console.log('next generation');
   calculateFitness();
   for (let i = 0; i < TOTAL; i++) {
-    birds[i] = pickOne();
+    //New code
+    let parentA = pickOne();
+    let parentB = pickOne();
+    let child = crossOver(parentA, parentB);
+    //
+    child.mutate();
+    birds[i] = child; // we needed this
   }
   savedBirds = [];
 }
-
+//Cheidzas pickOne
 function pickOne() {
   let index = 0;
   let r = random(1);
@@ -21,10 +27,11 @@ function pickOne() {
     index++;
   }
   index--;
-  let bird = savedBirds[index];
-  let child = new Bird(bird.brain);
-  child.mutate();
-  return child;
+  return savedBirds[index];
+}
+//New function
+function crossOver(parentA,parentB) {
+  return new Bird(parentA.brain,parentB.brain);
 }
 
 function calculateFitness() {
