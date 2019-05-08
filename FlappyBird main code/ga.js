@@ -8,11 +8,17 @@ function nextGeneration() {
   console.log('next generation');
   calculateFitness();
   for (let i = 0; i < TOTAL; i++) {
-    //New code
+    let r = random(1);
+    if (r < 0.75) {
+      //New code
     let parentA = pickOne();
     let parentB = pickOne();
     let child = crossOver(parentA, parentB);
     //
+  } else {
+    let parent = pickOne();
+    let child = new Bird(parent.brain);
+  }
     child.mutate();
     birds[i] = child; // we needed this
   }

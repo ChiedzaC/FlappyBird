@@ -7,7 +7,7 @@
 class Pipe {
 
   constructor() {
-    this.spacing = 125;
+    this.spacing = 100;
     this.top = random(height / 6, 3 / 4 * height);
     this.bottom = height - (this.top + this.spacing);
     this.x = width;
@@ -16,7 +16,7 @@ class Pipe {
   }
 
   hits(bird) {
-    if (bird.y < this.top || bird.y > height - this.bottom) {
+    if (bird.y < this.top+16 || bird.y > height - this.bottom-16) {
       if (bird.x > this.x && bird.x < this.x + this.w) {
         return true;
       }

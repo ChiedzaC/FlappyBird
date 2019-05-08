@@ -27,10 +27,6 @@ class NeuralNetwork {
       this.hidden_nodes = a.hidden_nodes;
       this.output_nodes = a.output_nodes;
 
-      //let rand = random(1);
-      
-      //if (rand <= 0.5) {  
-
         //takes input-2-hidden weights and bias from parentA
         // takes hidden-2-output weights and bias from parentB
         this.weights_ih = a.weights_ih.copy();
@@ -199,11 +195,5 @@ class NeuralNetwork {
     this.bias_h.map(mutate);
     this.bias_o.map(mutate);
   }
-  //New code
-  crossOver(parentA, parentB) {
-    return new NeuralNetwork(parentA,parentB);
-  }
-  //
-
 
 }
