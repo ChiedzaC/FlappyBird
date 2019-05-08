@@ -13,11 +13,11 @@ function nextGeneration() {
       //New code
     let parentA = pickOne();
     let parentB = pickOne();
-    let child = crossOver(parentA, parentB);
+    var child = crossOver(parentA, parentB);
     //
   } else {
     let parent = pickOne();
-    let child = new Bird(parent.brain);
+    var child = new Bird(parent.brain);
   }
     child.mutate();
     birds[i] = child; // we needed this

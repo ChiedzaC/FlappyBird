@@ -20,8 +20,8 @@ class Bird {
     if (brainA && brainB) { 
       this.brain = new NeuralNetwork(brainA, brainB);
       //
-    //} else if (brainA) {
-    //  this.brain = brainA.copy();
+    } else if (brainA) {
+      this.brain = brainA.copy();
     } else {
       this.brain = new NeuralNetwork(5, 8, 2);
     }
