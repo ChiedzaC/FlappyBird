@@ -10,7 +10,7 @@ function nextGeneration() {
   for (let i = 0; i < TOTAL; i++) {
     let r = random(1);
     // THIS IS WHERE YOU SET THE CROSSOVER RATE
-    let rate = 0; // [0 0.25 0.5 0.75 1]
+    let rate = 0.5; // [0 0.25 0.5 0.75 1]
     if (r < rate) {
       //New code
     let parentA = pickOne();
