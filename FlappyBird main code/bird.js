@@ -67,7 +67,7 @@ class Bird {
   }
 
   offScreen() {
-    return (this.y > height || this.y < 0);
+    return (this.y > height-16 || this.y < 0+16);
   }
 
   update() {
